@@ -1,12 +1,12 @@
 # dotfiles
 
-This dotfile project is based on [dotbare][https://github.com/kazhala/dotbare].
+This dotfile project is based on ![dotbare](https://github.com/kazhala/dotbare).
 
 ## yabai & skhd
 
 ### Pre-requirements
-- yabai: https://github.com/koekeishiya/yabai
-- skhd: https://github.com/koekeishiya/skhd
+- ![yabai](https://github.com/koekeishiya/yabai)
+- ![skhd](https://github.com/koekeishiya/skhd)
 
 ### Installation
 ```shell
@@ -18,9 +18,9 @@ cp -r skhd ~/.config/
 
 ### Pre-requirements
 
-- zinit: https://github.com/zdharma-continuum/zinit
-- Powerlevel10k: https://github.com/romkatv/powerlevel10k
-- peco: https://github.com/peco/peco
+- ![zinit](https://github.com/zdharma-continuum/zinit)
+- ![Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- ![peco](https://github.com/peco/peco)
 
 ### Installation
 
@@ -34,7 +34,7 @@ cp -r peco ~/.config/
 
 ### Pre-requirements
 
-- Karabiner-Elements: https://github.com/pqrs-org/Karabiner-Elements
+- ![Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
 
 ### Installation
 
