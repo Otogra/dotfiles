@@ -1,0 +1,31 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+
+include kitty-font.conf
+include kitty-scrollback.conf
+include kitty-mouse.conf
+include kitty-window-layout.conf
+include kitty-tab-bar.conf
+include kitty-color-scheme.conf
+include kitty-color-scheme.conf
+include kitty-advanced.conf
+include kitty-os-specific.conf
+include kitty-performance.conf
+include kitty-shortcuts.conf
+
+
+
+# Ayu Mirage
+# Wombat
+# Ayu
+# duckbones
+# Hybrid
+# Jellybeans
+# Seti
+# Vibrant Ink
+# Snazzy
+
+# BEGIN_KITTY_THEME
+# Snazzy
+include current-theme.conf
+# END_KITTY_THEME

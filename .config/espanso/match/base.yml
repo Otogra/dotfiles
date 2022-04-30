@@ -1,0 +1,212 @@
+global_vars:
+  - name: zkcard
+    type: date
+    params:
+      format: "%Y%m%d%H%M%S"
+  - name: clip
+    type: clipboard
+
+
+matches:
+  # 文本
+  # 自定义光标位置 $|$
+  # 图片 image_path
+
+  # 日期
+  - trigger: ";date"
+    replace: "{{my_date}}"
+    vars:
+      - name: my_date
+        type: date
+        params:
+          format: "%Y.%m.%d"
+
+  - trigger: ";now"
+    replace: "现在是{{time}}。"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H点%M分"
+  
+  # 选择
+  - trigger: ";bestc"
+    replace: "\n{{blessing}}\n\nZhen Bu Rang Lai\n{{zhuhao_date}}"
+    vars:
+      - name: blessing
+        type: choice
+        params:
+          values:
+            - "Best Wishes,"
+            - "Sincerely,"
+            - "Best Regards,"
+      - name: zhuhao_date
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # 随机
+  - trigger: ";bestw"
+    replace: "\n{{blessing}}\n\nZhen Bu Rang Lai\n{{zhuhao_date}}"
+    vars:
+      - name: blessing
+        type: random
+        params:
+          choices:
+            - "Best Wishes,"
+            - "Sincerely,"
+            - "Best Regards,"
+      - name: zhuhao_date
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # 剪贴板 scp 的例子
+  - trigger: ";scp"
+    replace: "scp -P 6666 zbrl@zbrl.bilibili:~/$|$ {{clip}}"
+
+  # 表单
+  - trigger: ";spring"
+    replace: "烎虎贺岁，祝{{form1.nick}}{{form1.blessing}}🐯🐯🐯🎉🎉🎉"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |-
+            称呼: [[nick]] \n
+            祝福语: [[blessing]]
+          fields:
+            nick:
+              multiline: false
+            blessing:
+              type: list # list or choice
+              values:
+                - 新春快乐、虎虎生威、如虎添翼！
+                - Paper多多，Money多多！
+                - 平安健康，开心长大！
+                - 新春快乐，福泰安康！
+                - 平安喜乐，阖家幸福，好运满满！
+
+
+  # Python
+  - trigger: ";fans"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: script
+        params:
+          args:
+            - python3
+            - "%CONFIG%/script/print_bilibili_fans.py"
+
+  # shell_test
+  - trigger: ";shfans"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python3 /Users/XXX/print_bilibili_fans.py"
+
+  # shell 天气
+  - trigger: ";weather"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl wttr.in/Shanghai?format=1"
+
+  # shell 天气
+  - trigger: ";cityc"
+    replace: "{{output}}"
+    vars:
+      - name: city
+        type: choice
+        params:
+          values:
+            - label: "北京"
+              id: "Beijing"
+            - label: "上海"
+              id: "Shanghai"
+            - label: "苏州"
+              id: "Suzhu"
+            - label: "漠河"
+              id: "Mohe"
+      - name: output
+        type: shell
+        params:
+          cmd: "curl wttr.in/{{city}}?format=1"
+
+ # shell 天气
+  - trigger: ";cityf"
+    replace: "{{output}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |-
+            城市: [[city]] 
+          fields:
+            city:
+              multiline: false
+      - name: output
+        type: shell
+        params:
+          cmd: "curl wttr.in/{{form1.city}}?format=1"
+
+
+  ##### Obsidian相关 ####
+  # 生成zk卡片
+  - trigger: ";obzk"
+    replace: "obsidian://advanced-uri?vault=knowledgehub&filepath=markdown%2F003_zk%2F{{uuid}}.md"
+    vars:
+      - name: uuid
+        type: date
+        params:
+          format: "%Y%m%d%H%M%S"
+  
+  # 方法1: 以剪贴板内容为文件名建立笔记
+  - trigger: ";obclip"
+    replace: "obsidian://advanced-uri?vault=knowledgehub&filepath=markdown%2F{{form1.mddir}}%2F{{form1.mdname}}.md"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |-
+            文件名: [[mdname]] 
+            保存文件夹: [[mddir]]
+          fields:
+            mdname:
+              multiline: false
+              default: "{{clip}}"
+            mddir:
+              type: list
+              values:
+                - 001_plain
+                - 002_avatar
+                - 005_moc
+
+  # 方法2: 以剪贴板内容为文件名建立笔记
+  - trigger: ";ob2clip"
+    replace: "obsidian://advanced-uri?vault=knowledgehub&filepath=markdown%2F{{dirname}}%2F{{clip}}$|$.md"
+    vars:
+      - name: dirname
+        type: choice
+        params:
+          values:
+            - label: "plain"
+              id: "001_plain"
+            - label: "avatar"
+              id: "002_avatar"
+            - label: "moc"
+              id: "005_moc"
+
+  # 制作替身
+  - trigger: ";obaaa"
+    replace: "obsidian://advanced-uri?vault=knowledgehub&filepath=markdown%2F002_avatar%2F{{uuid}}_{{clip}}.md&data=![[{{clip}}]]"
+    vars:
+      - name: uuid
+        type: date
+        params:
+          format: "%Y%m%d"
