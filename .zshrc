@@ -93,9 +93,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # Automatically load .bash_profile when zsh opening
 # source ~/.bash_profile
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -141,7 +138,8 @@ ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 
-zinit ice lucid atload"export DOTBARE_DIR='$HOME/.dotfiles'"
+zinit ice lucid \
+    atload"export DOTBARE_DIR='$HOME/.dotfiles' ; _dotbare_completion_cmd"
 zinit light kazhala/dotbare
 
 zinit ice wait lucid
@@ -164,7 +162,8 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # only can be used in tmux
 
 
 # theme
-zinit ice depth"1" # git clone depth
+zinit ice depth"1" \
+    atload'!source ~/.p10k.zsh'
 zinit light romkatv/powerlevel10k
 
 #  Load starship theme
@@ -245,7 +244,7 @@ export rh='root@192.168.100.2'
 alias cproj='cd ~/CLionProjects'
 alias jproj='cd ~/IdeaProjects'
 alias t='todo.sh'
-alias dot='cd ~/dotfiles'
+alias dot='dotbare'
 
 alias reload='exec zsh'
 alias src='exec zsh'
