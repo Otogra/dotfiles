@@ -1,0 +1,139 @@
+yabai -m config debug_output on
+
+# yabai -m space --create!/usr/bin/env sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+# sudo yabai --uninstall-sa
+# sudo yabai --install-sa
+# sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+
+ 
+
+
+
+# global settings
+yabai -m config layout						 bsp
+yabai -m config top_padding                  15
+yabai -m config bottom_padding               15
+yabai -m config left_padding                 15
+yabai -m config right_padding                15
+yabai -m config window_gap                   15
+yabai -m config mouse_follows_focus          on
+yabai -m config focus_follows_mouse          off
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                on
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+yabai -m config window_border                on
+yabai -m config window_border_width          6
+yabai -m config active_window_border_color   0xff9DE0AD
+yabai -m config normal_window_border_color   0xff363636 
+# yabai -m config active_window_border_color   0xff775759
+# yabai -m config normal_window_border_color   0xff555555
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 on
+
+
+################ Mouse Support #######################
+
+# set mouse interaction modifier key (default: fn)
+yabai -m config mouse_modifier               fn
+# set modifier + left-click drag to resize window (default: move)
+yabai -m config mouse_action1                move
+# set modifier + right-click drag to resize window (default: resize)
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+
+# yabai -m config focus_follows_mouse autoraise
+# yabai -m config mouse_follows_focus on
+
+######################################################
+
+
+
+############### Automation with rules and signals #######################
+
+yabai -m rule --add app="^System Preferences$" manage=off border=off
+yabai -m rule --add app="^WeChat$" manage=off border=off
+yabai -m rule --add app="^Path Finder$" manage=off border=off
+yabai -m rule --add app="^iTerm2$" manage=off border=off
+yabai -m rule --add app="^MacVim$" manage=off border=off
+yabai -m rule --add app="^CleanMyMac X$" manage=off border=off
+yabai -m rule --add app="^ClashX$" manage=off border=off
+yabai -m rule --add app="^Motrix$" manage=off border=off
+yabai -m rule --add app="^Mail$" manage=off border=off
+yabai -m rule --add app="^Movist Pro$" manage=off border=off
+yabai -m rule --add app="^Font Book$" manage=off border=off
+yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
+yabai -m rule --add app="Finder" manage=off border=off
+yabai -m rule --add app="Install*" manage=off border=off
+yabai -m rule --add app="^The Unarchiver$" manage=off border=off
+yabai -m rule --add app="^OpenInTerminal$" manage=off border=off
+yabai -m rule --add app="^Stats*" manage=off border=off
+yabai -m rule --add app="^Spotify*" manage=off border=off
+yabai -m rule --add app="^Amethyst*" manage=off border=off
+yabai -m rule --add app="^Music*" manage=off border=off
+yabai -m rule --add app="^Karabiner*" manage=off border=off
+yabai -m rule --add app="^DeepL$" manage=off border=off
+yabai -m rule --add app="^Grammarly*" manage=off border=off
+yabai -m rule --add app="^Keka$" manage=off border=off
+yabai -m rule --add app="Karabiner-*" manage=off border=off
+yabai -m rule --add app="Hammerspoon" manage=off border=off
+yabai -m rule --add app="App Store" manage=off border=off
+yabai -m rule --add app="Clash for Windows" manage=off border=off
+yabai -m rule --add app="DingTalk" manage=off border=off
+yabai -m rule --add app="钉钉" manage=off border=off
+yabai -m rule --add app="Warp" manage=off border=off
+yabai -m rule --add app="Marta" manage=off border=off
+yabai -m rule --add app="kitty" manage=off border=off
+yabai -m rule --add app="Typora" manage=off border=off
+yabai -m rule --add app="Disk Utility" manage=off border=off
+yabai -m rule --add app="Preview" manage=off border=off
+#yabai -m rule --add app="^Obsidian*" manage=on border=off 
+yabai -m rule --add app="^Dictionary*" manage=off  border=off
+
+yabai -m rule --add title="Extension*" sticky=on manage=off border=off
+yabai -m rule --add title="Preferences$" sticky=on manage=off border=off
+yabai -m rule --add title="^Helper*" sticky=on manage=off border=off
+yabai -m rule --add title="^Stats*" manage=off border=off
+yabai -m rule --add title="^Keka*" manage=off border=off
+yabai -m rule --add title="Messages" manage=off border=off
+yabai -m rule --add title="^General*" manage=off border=off
+yabai -m rule --add title="^Display*" manage=off border=off
+yabai -m rule --add title="^Notes*" manage=off border=off
+yabai -m rule --add title="^Sync*" manage=off border=off
+yabai -m rule --add title="Software Update" manage=off border=off
+yabai -m rule --add title="^Note*" manage=off border=off
+
+
+#########################################################################
+
+
+
+# yabai -m rule --add app="FireFox" grid=0:0:1670:34:1680:1846
+
+
+
+
+#yabai -m config external_bar all:0:$SPACEBAR_HEIGHT
+#yabai -m config external_bar all:40:0
+
+
+echo "yabai configuration loaded.."
