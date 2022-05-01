@@ -121,7 +121,6 @@ zinit wait"3" lucid light-mode for\
     dashixiong91/zsh-vscode \
     paulirish/git-open \
     romkatv/zsh-prompt-benchmark \
-    JaumeRF/linkfile-zsh \
     OMZP::web-search \
     OMZP::sudo \
     OMZP::dirhistory \
@@ -133,6 +132,7 @@ zinit wait lucid light-mode for\
         jimeh/zsh-peco-history \
     atload"export DOTBARE_DIR='$HOME/.dotfiles' ; _dotbare_completion_cmd" \
         kazhala/dotbare \
+        urbainvaes/fzf-marks
 
 # pfetch
 zinit ice as"program" \
@@ -150,6 +150,9 @@ zinit ice depth"1" \
            ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK '
 zinit load jeffreytse/zsh-vi-mode
 
+# forgit, not be uesd for now
+# zinit ice wait lucid
+# zinit load 'wfxr/forgit'
 
 zinit wait lucid light-mode for \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
@@ -179,11 +182,7 @@ zinit light romkatv/powerlevel10k
 # with installing cowsay and fortune using brew
 # zinit load babasbot/auto-fortune-cowsay-zsh
 
-# incr
-# hacker-quotes
-# fd
-# fzf
-# per-directory-history
+# hacker-quotes fzf per-directory-history
 
 
 #############
