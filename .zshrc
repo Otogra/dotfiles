@@ -102,66 +102,67 @@ source "${ZINIT_HOME}/zinit.zsh"
 # plugins #
 ###########
 
-zinit lucid wait"1" for\
-    light-mode OMZP::git \
-    light-mode OMZP::extract \
-    light-mode OMZP::gitignore \
-    light-mode OMZP::cp \
-    light-mode OMZP::safe-paste \
-    light-mode OMZP::colored-man-pages \
-    light-mode OMZP::copyfile \
-    light-mode OMZP::copypath \
-    light-mode OMZP::copybuffer \
-    light-mode OMZP::colorize \
-    light-mode OMZP::history \
-    light-mode OMZP::gitignore \
-    light-mode OMZP::command-not-found \
+zinit wait"1" lucid light-mode for\
+    OMZP::git \
+    OMZP::extract \
+    OMZP::gitignore \
+    OMZP::cp \
+    OMZP::safe-paste \
+    OMZP::colored-man-pages \
+    OMZP::copyfile \
+    OMZP::copypath \
+    OMZP::copybuffer \
+    OMZP::colorize \
+    OMZP::history \
+    OMZP::gitignore \
+    OMZP::command-not-found \
 
-zinit lucid wait"3" for\
-    light-mode dashixiong91/zsh-vscode \
-    light-mode paulirish/git-open \
-    light-mode romkatv/zsh-prompt-benchmark \
-    light-mode JaumeRF/linkfile-zsh \
-    light-mode OMZP::web-search \
-    light-mode OMZP::sudo \
-    light-mode OMZP::dirhistory \
+zinit wait"3" lucid light-mode for\
+    dashixiong91/zsh-vscode \
+    paulirish/git-open \
+    romkatv/zsh-prompt-benchmark \
+    JaumeRF/linkfile-zsh \
+    OMZP::web-search \
+    OMZP::sudo \
+    OMZP::dirhistory \
 
-zinit lucid for\
-    light-mode MichaelAquilina/zsh-you-should-use \
-    light-mode rupa/z \
+zinit wait lucid light-mode for\
+    MichaelAquilina/zsh-you-should-use \
+    rupa/z \
+    jimeh/zsh-peco-history \
+    atload"export DOTBARE_DIR='$HOME/.dotfiles' ; _dotbare_completion_cmd" \
+        kazhala/dotbare \
 
-zinit ice depth=1
+# pfetch
+zinit ice as"program" \
+    atload'export PF_INFO="ascii title host os kernel uptime pkgs memory shell editor wm de palette";
+           export PF_ASCII="Linux"; export PF_COL3=5; export PF_COL1=6; export PF_COL2=8; pfetch'
+zinit snippet 'https://github.com/dylanaraps/pfetch/blob/master/pfetch'
+
+
+# vimode
+zinit ice depth"1" \
+    atload'ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM ;
+           ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
+           ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
+           ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
+           ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK '
 zinit load jeffreytse/zsh-vi-mode
-ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
-ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-
-zinit ice lucid \
-    atload"export DOTBARE_DIR='$HOME/.dotfiles' ; _dotbare_completion_cmd"
-zinit light kazhala/dotbare
-
-zinit ice wait lucid
-zinit load jimeh/zsh-peco-history
-
-zinit ice lucid atload"bindkey '^P' history-substring-search-up ; bindkey '^N' history-substring-search-down" wait
-zinit load zsh-users/zsh-history-substring-search
 
 
-zinit ice lucid 
-zinit load zsh-users/zsh-syntax-highlighting
-zinit ice lucid 
-zinit load zsh-users/zsh-autosuggestions
-# zinit light zdharma-continuum/fast-syntax-highlighting
+zinit wait lucid light-mode for \
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+  bindmap'!"^P" -> history-substring-search-up; !"^N" -> history-substring-search-down' \
+    zsh-users/zsh-autosuggestions \
+  atload"bindkey '^P' history-substring-search-up ; bindkey '^N' history-substring-search-down" \
+    zsh-users/zsh-history-substring-search \
+  atload"zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup" \
+    Aloxaf/fzf-tab
 
 
-# with fzf installed by brew
-zinit light Aloxaf/fzf-tab
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # only can be used in tmux
-
-
-# theme
+# p10k
 zinit ice depth"1" \
     atload'!source ~/.p10k.zsh'
 zinit light romkatv/powerlevel10k
@@ -248,17 +249,3 @@ alias dot='dotbare'
 
 alias reload='exec zsh'
 alias src='exec zsh'
-
-
-
-
-
-# pftech
-export PF_INFO="ascii title host os kernel uptime pkgs memory shell editor wm de palette"
-export PF_ASCII="Linux"
-#export PF_COLOR=1 
-export PF_COL3=5
-export PF_COL1=6
-export PF_COL2=8
-export PF_COL4=0
-pfetch
