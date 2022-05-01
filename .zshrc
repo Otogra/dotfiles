@@ -127,9 +127,10 @@ zinit wait"3" lucid light-mode for\
     OMZP::dirhistory \
 
 zinit wait lucid light-mode for\
-    MichaelAquilina/zsh-you-should-use \
-    rupa/z \
-    jimeh/zsh-peco-history \
+    atload'export YSU_MESSAGE_POSITION="after"' \
+        MichaelAquilina/zsh-you-should-use \
+        rupa/z \
+        jimeh/zsh-peco-history \
     atload"export DOTBARE_DIR='$HOME/.dotfiles' ; _dotbare_completion_cmd" \
         kazhala/dotbare \
 
@@ -178,16 +179,10 @@ zinit light romkatv/powerlevel10k
 # with installing cowsay and fortune using brew
 # zinit load babasbot/auto-fortune-cowsay-zsh
 
-#zinit ice from'gh-r' as'program'
-#zinit light sei40kr/fast-alias-tips-bin
-#zinit light sei40kr/zsh-fast-alias-tips
-
 # incr
-# alias-tips
 # hacker-quotes
 # fd
 # fzf
-# tldr
 # per-directory-history
 
 
