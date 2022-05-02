@@ -87,10 +87,7 @@ yabai -m rule --add app="kitty" manage=off border=off
 yabai -m rule --add app="Typora" manage=off border=off
 yabai -m rule --add app="Disk Utility" manage=off border=off
 yabai -m rule --add app="Preview" manage=off border=off
-#yabai -m rule --add app="^Obsidian*" manage=on border=off 
 yabai -m rule --add app="^Dictionary*" manage=off  border=off
-
-
 yabai -m rule --add app="^QQ*" border=off
 
 yabai -m rule --add title="Extension*" sticky=on manage=off border=off
@@ -124,3 +121,24 @@ yabai -m space 1 --label main
 
 
 echo "yabai configuration loaded.."
+
+
+
+
+
+
+####################
+# External Singals #
+####################
+
+# For Yabai Indicator
+yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=display_added action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=display_removed action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=window_created action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=window_destroyed action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=window_focused action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=window_moved action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=window_resized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=window_minimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+yabai -m signal --add event=window_deminimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
