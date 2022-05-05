@@ -4,7 +4,7 @@ call plug#begin()
 " Themes
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 " Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
 " Plug 'sainnhe/vim-color-forest-night'

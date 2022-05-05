@@ -12,6 +12,9 @@ matches:
   # 自定义光标位置 $|$
   # 图片 image_path
 
+  - trigger: ";req"
+    replace: "🟥"
+
   # 日期
   - trigger: ";date"
     replace: "{{my_date}}"
