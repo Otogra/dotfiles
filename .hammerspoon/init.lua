@@ -32,10 +32,7 @@ hs.hotkey.bind({"control", "shift"}, "P", open_app("com.cocoatech.PathFinder"))
 hs.hotkey.bind({"control", "shift"}, "S", open_app("com.spotify.client"))
 hs.hotkey.bind({"control", "shift"}, "T", open_app("abnerworks.Typora"))
 hs.hotkey.bind({"control", "shift"}, "O", open_app("md.obsidian"))
-
-
-
-
+hs.hotkey.bind({"control", "shift"}, "Q", open_app("com.tencent.qq"))
 
 
 
