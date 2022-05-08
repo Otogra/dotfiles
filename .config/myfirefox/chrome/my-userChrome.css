@@ -10,16 +10,40 @@
     visibility: collapse;
 }
 
-
+/***********************/
+/* hide side bar title */
+/***********************/
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
     display: none;
 }
-
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
   display: none;
 }
 
+/********************************************************************/
+/* turn off full screen, use cmd+ctrl+f to open/hide navigation bar */
+/********************************************************************/
 
+#navigator-toolbox[inFullscreen] {
+    position: relative;
+    z-index: 1;
+    height: 3px;
+    margin-bottom:-3px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#navigator-toolbox[inFullscreen]:hover {
+    height: auto;
+    margin-bottom: 0px;
+    opacity: 1;
+    overflow: show;
+}
+
+#content-deck[inFullscreen]{
+    position:relative;
+    z-index: 0;
+} 
 
 /* auto hide and show sidebar */
 /*Collapse in default state and add transition*/
