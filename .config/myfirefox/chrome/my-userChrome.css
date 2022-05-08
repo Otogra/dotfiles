@@ -1,13 +1,49 @@
+/****************/
+/* hide tab bar */
+/****************/
 .tabbrowser-tab {
     min-width: initial !important;
 }
-.tab-content {
-    overflow: hidden !important;
+
+/********************************************************************************************/
+/* https://www.reddit.com/r/FirefoxCSS/comments/lwf22i/autohide_address_bar_reveal_on_hover/ */
+/* Auto-hide address bar + reveal on hover ***************************************************/
+/********************************************************************************************/
+:root {
+    --sidebar-width: 7.9vw;
+    --panel-width: 99.5vw;
+    --panel-hide-offset: -30px;
+    --opacity-when-hidden: 0.05;
+}
+#navigator-toolbox{
+  position: fixed !important;
+  /* Comment out following line to get 'slide-page-down' reveal, like in F11 fullscreen mode */ 
+  display: block; 
+  transition: margin-top 82ms 33ms linear, opacity 82ms 33ms linear !important; 
+  z-index: 1;
+  opacity: 1;
+  /* Spacing on the left/right for sidebar */
+  /* margin-right: var(--sidebar-width); */
+  /* Disabled the borders, as the bottom one seemed to have unwanted top padding sometimes */
+  border: none !important;
 }
 
+#navigator-toolbox,
+#navigator-toolbox > *{
+  /* Reduced width for panel in order to not overflow the screen on the right side */
+  width:  var(--panel-width); 
+}
 
-#TabsToolbar{
-    visibility: collapse;
+#navigator-toolbox:not(:focus-within):not(:hover){
+  margin-top: var(--panel-hide-offset);
+  opacity: var(--opacity-when-hidden);
+}
+
+/* Disable auto-hiding when in 'customize' mode */
+:root[customizing] #navigator-toolbox{
+  position: relative !important;
+  opacity: 1 !important;
+  margin-top: 0px;
 }
 
 /***********************/
@@ -19,31 +55,6 @@
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
   display: none;
 }
-
-/********************************************************************/
-/* turn off full screen, use cmd+ctrl+f to open/hide navigation bar */
-/********************************************************************/
-
-#navigator-toolbox[inFullscreen] {
-    position: relative;
-    z-index: 1;
-    height: 3px;
-    margin-bottom:-3px;
-    opacity: 0;
-    overflow: hidden;
-}
-
-#navigator-toolbox[inFullscreen]:hover {
-    height: auto;
-    margin-bottom: 0px;
-    opacity: 1;
-    overflow: show;
-}
-
-#content-deck[inFullscreen]{
-    position:relative;
-    z-index: 0;
-} 
 
 /* auto hide and show sidebar */
 /*Collapse in default state and add transition*/
