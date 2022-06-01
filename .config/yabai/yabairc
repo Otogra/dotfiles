@@ -2,6 +2,65 @@ yabai -m config debug_output on
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
+#############
+# App Rules #
+#############
+
+yabai -m rule --add app="^System Preferences$" manage=off border=off
+yabai -m rule --add app="^WeChat$" manage=off border=off
+yabai -m rule --add app="^Path Finder$" manage=off border=off
+yabai -m rule --add app="^iTerm2$" manage=off border=off
+yabai -m rule --add app="^MacVim$" manage=off border=off
+yabai -m rule --add app="^CleanMyMac X$" manage=off border=off
+yabai -m rule --add app="^ClashX$" manage=off border=off
+yabai -m rule --add app="^Motrix$" manage=off border=off
+yabai -m rule --add app="^Mail$" manage=off border=off
+yabai -m rule --add app="^Movist Pro$" manage=off border=off
+yabai -m rule --add app="^Font Book$" manage=off border=off
+yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
+yabai -m rule --add app="Finder" manage=off border=off
+yabai -m rule --add app="Install*" manage=off border=off
+yabai -m rule --add app="^The Unarchiver$" manage=off border=off
+yabai -m rule --add app="^OpenInTerminal$" manage=off border=off
+yabai -m rule --add app="^Stats*" manage=off border=off
+yabai -m rule --add app="^Spotify*" manage=off border=off
+yabai -m rule --add app="^Amethyst*" manage=off border=off
+yabai -m rule --add app="^Music*" manage=off border=off
+yabai -m rule --add app="^Karabiner*" manage=off border=off
+yabai -m rule --add app="^DeepL$" manage=off border=off
+yabai -m rule --add app="^Grammarly*" manage=off border=off
+yabai -m rule --add app="^Keka$" manage=off border=off
+yabai -m rule --add app="Karabiner-*" manage=off border=off
+yabai -m rule --add app="Hammerspoon" manage=off border=off
+yabai -m rule --add app="App Store" manage=off border=off
+yabai -m rule --add app="Clash for Windows" manage=off border=off
+yabai -m rule --add app="DingTalk" manage=off border=off
+yabai -m rule --add app="钉钉" manage=off border=off
+yabai -m rule --add app="Warp" manage=off border=off
+yabai -m rule --add app="Marta" manage=off border=off
+yabai -m rule --add app="kitty" manage=off border=off
+yabai -m rule --add app="Typora" manage=off border=off
+yabai -m rule --add app="Disk Utility" manage=off border=off
+yabai -m rule --add app="Preview" manage=off border=off
+yabai -m rule --add app="^Dictionary*" manage=off  border=off
+yabai -m rule --add app="^QQ*" border=off
+yabai -m rule --add app="^Obsidian*" manage=off border=off
+yabai -m rule --add app="^Proxifier*" manage=off border=off
+yabai -m rule --add app="^SunloginClient*" manage=off border=off
+yabai -m rule --add app="^Anki*" manage=off border=off
+
+yabai -m rule --add title="Extension*" sticky=on manage=off border=off
+yabai -m rule --add title="Preferences$" sticky=on manage=off border=off
+yabai -m rule --add title="^Helper*" sticky=on manage=off border=off
+yabai -m rule --add title="^Stats*" manage=off border=off
+yabai -m rule --add title="^Keka*" manage=off border=off
+yabai -m rule --add title="Messages" manage=off border=off
+yabai -m rule --add title="^General*" manage=off border=off
+yabai -m rule --add title="^Display*" manage=off border=off
+yabai -m rule --add title="^Sync*" manage=off border=off
+yabai -m rule --add title="Software Update" manage=off border=off
+yabai -m rule --add title="*Update*" manage=off border=off
+
 ###################
 # Window Settings #
 ###################
@@ -47,61 +106,6 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
-#############
-# App Rules #
-#############
-
-yabai -m rule --add app="^System Preferences$" manage=off border=off
-yabai -m rule --add app="^WeChat$" manage=off border=off
-yabai -m rule --add app="^Path Finder$" manage=off border=off
-yabai -m rule --add app="^iTerm2$" manage=off border=off
-yabai -m rule --add app="^MacVim$" manage=off border=off
-yabai -m rule --add app="^CleanMyMac X$" manage=off border=off
-yabai -m rule --add app="^ClashX$" manage=off border=off
-yabai -m rule --add app="^Motrix$" manage=off border=off
-yabai -m rule --add app="^Mail$" manage=off border=off
-yabai -m rule --add app="^Movist Pro$" manage=off border=off
-yabai -m rule --add app="^Font Book$" manage=off border=off
-yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
-yabai -m rule --add app="Finder" manage=off border=off
-yabai -m rule --add app="Install*" manage=off border=off
-yabai -m rule --add app="^The Unarchiver$" manage=off border=off
-yabai -m rule --add app="^OpenInTerminal$" manage=off border=off
-yabai -m rule --add app="^Stats*" manage=off border=off
-yabai -m rule --add app="^Spotify*" manage=off border=off
-yabai -m rule --add app="^Amethyst*" manage=off border=off
-yabai -m rule --add app="^Music*" manage=off border=off
-yabai -m rule --add app="^Karabiner*" manage=off border=off
-yabai -m rule --add app="^DeepL$" manage=off border=off
-yabai -m rule --add app="^Grammarly*" manage=off border=off
-yabai -m rule --add app="^Keka$" manage=off border=off
-yabai -m rule --add app="Karabiner-*" manage=off border=off
-yabai -m rule --add app="Hammerspoon" manage=off border=off
-yabai -m rule --add app="App Store" manage=off border=off
-yabai -m rule --add app="Clash for Windows" manage=off border=off
-yabai -m rule --add app="DingTalk" manage=off border=off
-yabai -m rule --add app="钉钉" manage=off border=off
-yabai -m rule --add app="Warp" manage=off border=off
-yabai -m rule --add app="Marta" manage=off border=off
-yabai -m rule --add app="kitty" manage=off border=off
-yabai -m rule --add app="Typora" manage=off border=off
-yabai -m rule --add app="Disk Utility" manage=off border=off
-yabai -m rule --add app="Preview" manage=off border=off
-yabai -m rule --add app="^Dictionary*" manage=off  border=off
-yabai -m rule --add app="^QQ*" border=off
-yabai -m rule --add app="^Obsidian*" manage=off border=off
-yabai -m rule --add app="^Proxifier*" manage=off border=off
-
-yabai -m rule --add title="Extension*" sticky=on manage=off border=off
-yabai -m rule --add title="Preferences$" sticky=on manage=off border=off
-yabai -m rule --add title="^Helper*" sticky=on manage=off border=off
-yabai -m rule --add title="^Stats*" manage=off border=off
-yabai -m rule --add title="^Keka*" manage=off border=off
-yabai -m rule --add title="Messages" manage=off border=off
-yabai -m rule --add title="^General*" manage=off border=off
-yabai -m rule --add title="^Display*" manage=off border=off
-yabai -m rule --add title="^Sync*" manage=off border=off
-yabai -m rule --add title="Software Update" manage=off border=off
 
 ####################
 # External Singals #
