@@ -44,10 +44,11 @@ yabai -m rule --add app="Disk Utility" manage=off border=off
 yabai -m rule --add app="Preview" manage=off border=off
 yabai -m rule --add app="^Dictionary*" manage=off  border=off
 yabai -m rule --add app="^QQ*" border=off
-yabai -m rule --add app="^Obsidian*" manage=off border=off
+#yabai -m rule --add app="^Obsidian*" manage=off border=off
 yabai -m rule --add app="^Proxifier*" manage=off border=off
 yabai -m rule --add app="^SunloginClient*" manage=off border=off
 yabai -m rule --add app="^Anki*" manage=off border=off
+yabai -m rule --add app="^Logi*" manage=off border=off
 
 yabai -m rule --add title="Extension*" sticky=on manage=off border=off
 yabai -m rule --add title="Preferences$" sticky=on manage=off border=off
@@ -60,6 +61,11 @@ yabai -m rule --add title="^Display*" manage=off border=off
 yabai -m rule --add title="^Sync*" manage=off border=off
 yabai -m rule --add title="Software Update" manage=off border=off
 yabai -m rule --add title="*Update*" manage=off border=off
+
+jetbrains='^(IntelliJ IDEA|WebStorm|CLion)$'
+yabai -m rule --add app="${jetbrains}" manage=off
+yabai -m rule --add app="${jetbrains}" title="( – )" manage=on
+
 
 ###################
 # Window Settings #
