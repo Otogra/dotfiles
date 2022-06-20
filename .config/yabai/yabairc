@@ -8,11 +8,12 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 yabai -m rule --add app="^System Preferences$" manage=off border=off
 yabai -m rule --add app="^WeChat$" manage=off border=off
-yabai -m rule --add app="^Path Finder$" manage=off border=off
 yabai -m rule --add app="^iTerm2$" manage=off border=off
 yabai -m rule --add app="^MacVim$" manage=off border=off
 yabai -m rule --add app="^CleanMyMac X$" manage=off border=off
-yabai -m rule --add app="^ClashX$" manage=off border=off
+#yabai -m rule --add app="^ClashX$" manage=off border=off
+yabai -m rule --add app="^Proxifier*" manage=off border=off
+yabai -m rule --add app="^Path Finder$" manage=off border=off
 yabai -m rule --add app="^Motrix$" manage=off border=off
 yabai -m rule --add app="^Mail$" manage=off border=off
 yabai -m rule --add app="^Movist Pro$" manage=off border=off
@@ -44,8 +45,6 @@ yabai -m rule --add app="Disk Utility" manage=off border=off
 yabai -m rule --add app="Preview" manage=off border=off
 yabai -m rule --add app="^Dictionary*" manage=off  border=off
 yabai -m rule --add app="^QQ*" border=off
-#yabai -m rule --add app="^Obsidian*" manage=off border=off
-yabai -m rule --add app="^Proxifier*" manage=off border=off
 yabai -m rule --add app="^SunloginClient*" manage=off border=off
 yabai -m rule --add app="^Anki*" manage=off border=off
 yabai -m rule --add app="^Logi*" manage=off border=off
@@ -65,6 +64,24 @@ yabai -m rule --add title="*Update*" manage=off border=off
 jetbrains='^(IntelliJ IDEA|WebStorm|CLion)$'
 yabai -m rule --add app="${jetbrains}" manage=off
 yabai -m rule --add app="${jetbrains}" title="( – )" manage=on
+
+
+##################
+# Space Settings #
+##################
+yabai -m space 1 --label browser
+yabai -m space 2 --label note
+yabai -m space 3 --label dev
+yabai -m space 4 --label term
+yabai -m space 5 --label monitor
+
+yabai -m rule --add app="Firefox" space=browser
+yabai -m rule --add app="^Obsidian$" space=note
+yabai -m rule --add app="^PDF Expert$" space=note
+yabai -m rule --add app="$(jetbrains)" space=dev
+yabai -m rule --add app="^Alacritty" space=term
+yabai -m rule --add app="^Path Finder*" space=monitor
+yabai -m rule --add app="^Proxifier" space=monitor
 
 
 ###################
