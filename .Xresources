@@ -1,0 +1,13 @@
+Xft.dpi: 144
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+Xcursor.theme: Breeze
+Xcursor.size: 30
+
+
+

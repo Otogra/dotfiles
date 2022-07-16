@@ -1,0 +1,36 @@
+#Colorscheme: base16-gruvbox-dark-hard 
+#Colorscheme: base16-gruvbox-dark-medium
+Colorscheme: base16-onedark.yml
+
+GithubToken: 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
+  #DryRun: true
+DryRun: false
+
+applications:
+  alacritty:
+    enabled: true
+    files:
+      default:
+        path: ~/.config/alacritty/alacritty.yml
+        mode: replace
+        start_marker: "# <<<<<<<<<<"
+        end_marker: "# >>>>>>>>>>"
+
+  gtk2:
+    enabled: true
+    files:
+      schemes:
+        path: ~/.gtkrc-2.0.mine
+        mode: replace
+        start_marker: "# <<<<<<<<<<"
+        end_marker: "# >>>>>>>>>>"
+
+  nvim:
+    enabled: true
+    files:
+      default:
+        path: ~/.config/nvim/colors/base16.lua
+        mode: replace
+        start_marker: '-- <<<<<<<<<<'
+        end_marker: '-- >>>>>>>>>>'
+

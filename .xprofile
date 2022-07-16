@@ -1,0 +1,19 @@
+#!/bin/sh
+
+LOG_FILE="/tmp/startup.log"
+
+if [ -f $LOG_FILE ]; then
+    rm $LOG_FILE
+fi
+
+(xrandr --output eDP --mode 2880x1800 --pos 0x360 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --primary --mode 3840x2160 --pos 2880x0 --rotate normal --output DisplayPort-3 --off 2>> "${LOG_FILE}") &
+
+(cfw 2>> "${LOG_FILE}") &
+(fcitx5 2>> "${LOG_FILE}") & 
+(sleep 2 ; gtk-launch GoldenDict++.desktop 2>> "${LOG_FILE}") &
+#(flatpak run md.obsidian.Obsidian 2>> "${LOG_FILE}") &
+(firefox 2>> "${LOG_FILE}") &
+(sleep 2 ; uget-gtk 2>> "${LOG_FILE}") &
+(pcmanfm --daemon-mode 2>> "${LOG_FILE}") &
+(copyq 2>> "${LOG_FILE}") &
+(obsidian 2>> "${LOG_FILE}") &
