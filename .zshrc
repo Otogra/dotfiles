@@ -77,11 +77,10 @@ zinit ice depth"1" \
            ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK '
 zinit load jeffreytse/zsh-vi-mode
 
+# atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \ 
+# should use zicompinit, but it will create .zdumpfile 
+# in the home directory and can not be specified
 zinit wait lucid light-mode for \
-  # atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \ # should use zicompinit, 
-                                                              # but it will create .zdumpfile
-                                                              # in the home directory and can
-                                                              # not be specified
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
@@ -170,10 +169,14 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias l.='exa -a | egrep "^\."'
 
 # pacman and yay
+alias pacs='sudo pacman -S'
 alias pacsyu='sudo pacman -Syu'                  # update only standard pkgs
 alias pacsyyu='sudo pacman -Syyu'                # Refresh pkglist & update standard pkgs
+alias paccc='sudo pacman -Scc'
+alias yays='yay -S'
 alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
 alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
+alias yaycc='yay -Scc'
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 
