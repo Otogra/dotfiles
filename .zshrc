@@ -37,80 +37,6 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 fpath=(${ZSH}/completions $fpath)
 autoload -U compinit; compinit -d "${ZSH_CACHE_DIR}/.zcompdump"
 
-###########
-# plugins #
-###########
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-source "${ZINIT_HOME}/zinit.zsh"
-
-zinit wait"1" lucid light-mode for\
-    OMZP::git OMZP::extract OMZP::gitignore  OMZP::cp OMZP::safe-paste \
-    OMZP::colored-man-pages OMZP::copyfile OMZP::copypath OMZP::copybuffer \
-    OMZP::colorize OMZP::history OMZP::gitignore OMZP::command-not-found \
-
-zinit wait"3" lucid light-mode for\
-    dashixiong91/zsh-vscode paulirish/git-open \
-    romkatv/zsh-prompt-benchmark \
-    OMZP::web-search OMZP::sudo OMZP::dirhistory \
-
-zinit wait lucid light-mode for\
-    atload'export YSU_MESSAGE_POSITION="after"' \
-        MichaelAquilina/zsh-you-should-use \
-    atload"export _Z_DATA='$ZSH_CACHE_DIR/.z'" \
-        rupa/z \
-        jimeh/zsh-peco-history \
-        urbainvaes/fzf-marks
-    # atload"export DOTBARE_DIR='$HOME/.dotfiles' ; _dotbare_completion_cmd" \
-    #     kazhala/dotbare \
-
-zinit ice as"program" \
-    atload'export PF_INFO="ascii title host os kernel uptime pkgs memory shell editor wm de palette";
-           export PF_ASCII="Linux"; export PF_COL3=5; export PF_COL1=6; export PF_COL2=8;' # pfetch
-zinit snippet 'https://github.com/dylanaraps/pfetch/blob/master/pfetch'
-
-# vimode
-zinit ice depth"1" \
-    atload'ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM ;
-           ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
-           ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
-           ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
-           ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK '
-zinit load jeffreytse/zsh-vi-mode
-
-# atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \ 
-# should use zicompinit, but it will create .zdumpfile 
-# in the home directory and can not be specified
-zinit wait lucid light-mode for \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-  bindmap'!"^P" -> history-substring-search-up; !"^N" -> history-substring-search-down' \
-    zsh-users/zsh-autosuggestions \
-  atload"bindkey '^P' history-substring-search-up ; bindkey '^N' history-substring-search-down" \
-    zsh-users/zsh-history-substring-search \
-  atload"zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup" \
-    Aloxaf/fzf-tab
-
-zinit ice depth"1" \
-    atload'!source ~/.p10k.zsh'
-zinit light romkatv/powerlevel10k
-
-# forgit, not be uesd for now
-# zinit ice wait lucid
-# zinit load 'wfxr/forgit'
-#
-#  Load starship theme
-#  zinit ice as"command" from"gh-r" \
-#            atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-#            atpull"%atclone" src"init.zsh"
-#  zinit light starship/starship
-# eval "$(starship init bash)"
-
-# with installing cowsay and fortune using brew
-# zinit load babasbot/auto-fortune-cowsay-zsh
-# hacker-quotes fzf per-directory-history
-
-
 #############
 # functions #
 #############
@@ -216,6 +142,82 @@ alias src='exec zsh'
 
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+###########
+# plugins #
+###########
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit wait"1" lucid light-mode for\
+    OMZP::git OMZP::extract OMZP::gitignore  OMZP::cp OMZP::safe-paste \
+    OMZP::colored-man-pages OMZP::copyfile OMZP::copypath OMZP::copybuffer \
+    OMZP::colorize OMZP::history OMZP::gitignore OMZP::command-not-found \
+
+zinit wait"3" lucid light-mode for\
+    dashixiong91/zsh-vscode paulirish/git-open \
+    romkatv/zsh-prompt-benchmark \
+    OMZP::web-search OMZP::sudo OMZP::dirhistory \
+
+zinit wait lucid light-mode for\
+    atload'export YSU_MESSAGE_POSITION="after"' \
+        MichaelAquilina/zsh-you-should-use \
+    atload"export _Z_DATA='$ZSH_CACHE_DIR/.z'" \
+        rupa/z \
+        jimeh/zsh-peco-history \
+        urbainvaes/fzf-marks \
+        zsh-users/zsh-completions
+    # atload"export DOTBARE_DIR='$HOME/.dotfiles' ; _dotbare_completion_cmd" \
+    #     kazhala/dotbare \
+
+zinit ice as"program" \
+    atload'export PF_INFO="ascii title host os kernel uptime pkgs memory shell editor wm de palette";
+           export PF_ASCII="Linux"; export PF_COL3=5; export PF_COL1=6; export PF_COL2=8;' # pfetch
+zinit snippet 'https://github.com/dylanaraps/pfetch/blob/master/pfetch'
+
+# vimode
+zinit ice depth"1" \
+    atload'ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM ;
+           ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
+           ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
+           ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK ;
+           ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK '
+zinit load jeffreytse/zsh-vi-mode
+
+# atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \ 
+# should use zicompinit, but it will create .zdumpfile 
+# in the home directory and can not be specified
+zinit wait lucid light-mode for \
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+  blockf \
+    zsh-users/zsh-completions \
+  atload"_zsh_autosuggest_start" \
+  bindmap'!"^P" -> history-substring-search-up; !"^N" -> history-substring-search-down' \
+    zsh-users/zsh-autosuggestions \
+  atload"bindkey '^P' history-substring-search-up ; bindkey '^N' history-substring-search-down" \
+    zsh-users/zsh-history-substring-search \
+  atload"zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup" \
+    Aloxaf/fzf-tab
+
+zinit ice depth"1" \
+    atload'!source ~/.p10k.zsh'
+zinit light romkatv/powerlevel10k
+
+# forgit, not be uesd for now
+# zinit ice wait lucid
+# zinit load 'wfxr/forgit'
+#
+#  Load starship theme
+#  zinit ice as"command" from"gh-r" \
+#            atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+#            atpull"%atclone" src"init.zsh"
+#  zinit light starship/starship
+# eval "$(starship init bash)"
+
+# with installing cowsay and fortune using brew
+# zinit load babasbot/auto-fortune-cowsay-zsh
+# hacker-quotes fzf per-directory-history
 
 colorscript random
 
