@@ -227,7 +227,7 @@ alias zshenv="vim ~/.zshenv"
 alias zshrc="vim ~/.zshrc"
 alias p10kzsh="vim ~/.p10k.zsh"
 
-alias config="cd ~/.config"
+alias config="cd ~/dotfiles"
 
 alias vim='nvim'
 export rh='root@192.168.100.2'
