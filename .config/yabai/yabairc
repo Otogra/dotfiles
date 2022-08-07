@@ -17,6 +17,7 @@ yabai -m rule --add app="^Path Finder$" manage=off border=off
 yabai -m rule --add app="^Motrix$" manage=off border=off
 yabai -m rule --add app="^Mail$" manage=off border=off
 yabai -m rule --add app="^Movist Pro$" manage=off border=off
+yabai -m rule --add app="^IINA$" manage=off border=off
 yabai -m rule --add app="^Font Book$" manage=off border=off
 yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
 yabai -m rule --add app="Finder" manage=off border=off
@@ -48,6 +49,7 @@ yabai -m rule --add app="^QQ*" border=off
 yabai -m rule --add app="^SunloginClient*" manage=off border=off
 yabai -m rule --add app="^Anki*" manage=off border=off
 yabai -m rule --add app="^Logi*" manage=off border=off
+yabai -m rule --add app="^Hex Fiend*" manage=off border=off
 
 yabai -m rule --add title="Extension*" sticky=on manage=off border=off
 yabai -m rule --add title="Preferences$" sticky=on manage=off border=off
@@ -61,7 +63,7 @@ yabai -m rule --add title="^Sync*" manage=off border=off
 yabai -m rule --add title="Software Update" manage=off border=off
 yabai -m rule --add title="*Update*" manage=off border=off
 
-jetbrains='^(IntelliJ IDEA|WebStorm|CLion)$'
+jetbrains='^(IntelliJ IDEA|WebStorm|CLion|IntelliJ IDEA-EAP)$'
 yabai -m rule --add app="${jetbrains}" manage=off
 yabai -m rule --add app="${jetbrains}" title="( – )" manage=on
 
@@ -80,8 +82,6 @@ yabai -m rule --add app="^Obsidian$" space=note
 yabai -m rule --add app="^PDF Expert$" space=note
 yabai -m rule --add app="$(jetbrains)" space=dev
 yabai -m rule --add app="^Alacritty" space=term
-yabai -m rule --add app="^Path Finder*" space=monitor
-yabai -m rule --add app="^Proxifier" space=monitor
 
 
 ###################
@@ -122,7 +122,7 @@ yabai -m space 1 --label main
 #################
 
 # set mouse interaction modifier key (default: fn)
-yabai -m config mouse_modifier               fn
+yabai -m config mouse_modifier               alt
 # set modifier + left-click drag to resize window (default: move)
 yabai -m config mouse_action1                move
 # set modifier + right-click drag to resize window (default: resize)

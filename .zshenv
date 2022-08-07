@@ -5,6 +5,12 @@ export EDITOR='nvim'
 #   export EDITOR='mvim'
 # fi
 
+export PATH="/usr/local/sbin:$PATH"
+
+# homebrew
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 
 # nginx
 PATH=$PATH:/opt/nginx/sbin
@@ -37,12 +43,8 @@ export PATH=$PATH:/opt/kroleg/mc/bin
 # rust cargo
 export PATH=$PATH:/Users/chenghuipeng/.cargo/bin
 
-
-
-# homebrew
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.nju.edu.cn/homebrew-bottles
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottle
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles/bottles
-
 # don't know
 export TERMINFO=/usr/share/terminfo
+
+
+export PATH=$PATH:/opt/rclone/rclone-v1.59.0-osx-amd64/bin
