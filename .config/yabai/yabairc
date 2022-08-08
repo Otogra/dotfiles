@@ -68,22 +68,6 @@ yabai -m rule --add app="${jetbrains}" manage=off
 yabai -m rule --add app="${jetbrains}" title="( – )" manage=on
 
 
-##################
-# Space Settings #
-##################
-yabai -m space 1 --label browser
-yabai -m space 2 --label note
-yabai -m space 3 --label dev
-yabai -m space 4 --label term
-yabai -m space 5 --label monitor
-
-yabai -m rule --add app="Firefox" space=browser
-yabai -m rule --add app="^Obsidian$" space=note
-yabai -m rule --add app="^PDF Expert$" space=note
-yabai -m rule --add app="$(jetbrains)" space=dev
-yabai -m rule --add app="^Alacritty" space=term
-
-
 ###################
 # Window Settings #
 ###################
